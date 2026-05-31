@@ -217,10 +217,27 @@ def render_lesson(lesson: Lesson) -> str:
             <main>
               <section class="lesson-hero">
                 <div class="lesson-hero-inner">
-                  <p class="eyebrow">Lesson {lesson_id}</p>
-                  <h1>{escape(lesson.title)}</h1>
-                  <p>{escape(lesson.summary)}</p>
+                  <div class="lesson-hero-copy">
+                    <p class="eyebrow">Lesson {lesson_id}</p>
+                    <h1>{escape(lesson.title)}</h1>
+                    <p>{escape(lesson.summary)}</p>
         {render_list(lesson.objectives, "objective-list")}
+                  </div>
+                  <aside class="lesson-hero-panel" aria-label="실습 흐름 미리보기">
+                    <p class="panel-kicker">Practice Flow</p>
+                    <div class="flow-row">
+                      <code>1. 읽기</code>
+                      <span>개념과 예제 코드를 먼저 확인합니다.</span>
+                    </div>
+                    <div class="flow-row">
+                      <code>2. 입력하기</code>
+                      <span>오른쪽 입력창에 직접 Python 코드를 작성합니다.</span>
+                    </div>
+                    <div class="flow-row">
+                      <code>3. 실행하기</code>
+                      <span>결과와 오류 힌트를 보며 코드를 고칩니다.</span>
+                    </div>
+                  </aside>
                 </div>
               </section>
 
