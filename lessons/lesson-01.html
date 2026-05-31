@@ -69,37 +69,40 @@
         </div>
         <div class="concept-grid">
           <article class="concept-card">
-            <h3>=는 대입 연산자</h3>
+            <h3>숫자형 데이터는 계산 가능한 값으로 저장됨</h3>
             <p>
-              <span class="code-inline">a = 3</span>은 변수 <span class="code-inline">a</span>에
-              숫자 <span class="code-inline">3</span>을 저장한다는 뜻입니다. 수학의
-              같다와 달리 Python의 <span class="code-inline">=</span>는 오른쪽 값을
-              왼쪽 이름에 넣는 대입 연산자입니다.
+              <span class="code-inline">score = 80</span>을 실행하면 Python은
+              <span class="code-inline">80</span>을 계산할 수 있는 숫자 데이터로
+              보고, 그 값을 <span class="code-inline">score</span>라는 이름에 저장합니다.
+              그래서 <span class="code-inline">score + 10</span>처럼 바로 계산할 수 있습니다.
             </p>
           </article>
           <article class="concept-card">
-            <h3>변수의 값은 다시 바뀔 수 있음</h3>
+            <h3>문자열 데이터는 따옴표로 감싼 글자로 저장됨</h3>
+            <p>
+              <span class="code-inline">name = "민지"</span>를 실행하면 Python은
+              따옴표 안의 <span class="code-inline">민지</span>를 글자 데이터로 보고
+              <span class="code-inline">name</span>에 저장합니다. 따옴표가 없으면
+              Python은 글자가 아니라 이미 만들어진 변수 이름을 찾으려고 합니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>=는 오른쪽 값을 왼쪽 변수에 넣는 대입</h3>
+            <p>
+              <span class="code-inline">a = 3</span>은 <span class="code-inline">a</span>와
+              <span class="code-inline">3</span>이 같다는 뜻이 아니라, 오른쪽의
+              <span class="code-inline">3</span>을 왼쪽 변수 <span class="code-inline">a</span>에
+              저장한다는 뜻입니다. Python은 항상 오른쪽을 먼저 읽습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>같은 변수에 다시 대입하면 저장된 값이 바뀜</h3>
             <p>
               <span class="code-inline">a = 3</span> 다음에
-              <span class="code-inline">a = 5</span>를 실행하면 <span class="code-inline">a</span>의
-              값은 <span class="code-inline">5</span>가 됩니다. 변수는 마지막으로
-              대입된 값을 기억합니다.
-            </p>
-          </article>
-          <article class="concept-card">
-            <h3>a = a + 1의 원리</h3>
-            <p>
-              <span class="code-inline">a = a + 1</span>은 먼저 오른쪽의
-              <span class="code-inline">a + 1</span>을 계산한 뒤, 그 결과를 다시
-              <span class="code-inline">a</span>에 저장합니다. 그래서 값이 1 증가합니다.
-            </p>
-          </article>
-          <article class="concept-card">
-            <h3>숫자와 문자열 데이터</h3>
-            <p>
-              숫자는 계산할 수 있고 문자열은 글자를 나타냅니다.
-              <span class="code-inline">score = 80</span>은 계산 가능한 숫자,
-              <span class="code-inline">name = "민지"</span>는 글자 데이터입니다.
+              <span class="code-inline">a = 5</span>를 실행하면 <span class="code-inline">a</span>는
+              마지막에 저장한 <span class="code-inline">5</span>를 기억합니다.
+              <span class="code-inline">a = a + 1</span>은 기존 <span class="code-inline">a</span>를
+              읽고 1을 더한 뒤, 그 결과를 다시 <span class="code-inline">a</span>에 저장합니다.
             </p>
           </article>
         </div>
@@ -136,39 +139,51 @@ print(name)</code></pre>
         </div>
 
         <div class="practice-layout">
-          <div class="practice-stack" aria-label="실습 질문">
-            <article class="practice-question" aria-current="true">
-              <h3>실습 1. 변수 값 바꾸기</h3>
+          <section class="practice-card" aria-label="실습 과제">
+            <div class="practice-tabs" role="tablist" aria-label="실습 선택">
+              <button class="practice-tab" type="button" role="tab" aria-selected="true" data-practice-tab="practice-1">1</button>
+              <button class="practice-tab" type="button" role="tab" aria-selected="false" data-practice-tab="practice-2">2</button>
+              <button class="practice-tab" type="button" role="tab" aria-selected="false" data-practice-tab="practice-3">3</button>
+              <button class="practice-tab" type="button" role="tab" aria-selected="false" data-practice-tab="practice-4">4</button>
+            </div>
+
+            <article class="practice-question" id="practice-1" role="tabpanel" aria-current="true" data-practice-panel>
+              <p class="lesson-meta">실습 1</p>
+              <h3>숫자형 데이터를 변수에 저장하기</h3>
               <p>
-                <span class="code-inline">a = 3</span>을 출력한 뒤,
-                <span class="code-inline">a = 5</span>로 다시 대입하고 한 번 더
-                출력해 보세요. 어떤 값이 마지막에 남는지 확인합니다.
+                <span class="code-inline">score = 80</span>처럼 숫자를 따옴표 없이
+                변수에 저장하고, <span class="code-inline">print(score)</span>로
+                출력해 보세요. 숫자는 계산 가능한 값으로 저장됩니다.
               </p>
             </article>
-            <article class="practice-question">
-              <h3>실습 2. a = a + 1 실험하기</h3>
+            <article class="practice-question" id="practice-2" role="tabpanel" hidden data-practice-panel>
+              <p class="lesson-meta">실습 2</p>
+              <h3>문자열 데이터를 변수에 저장하기</h3>
+              <p>
+                <span class="code-inline">name = "민지"</span>처럼 글자는 따옴표로
+                감싸서 저장합니다. 따옴표를 지우면 Python이 변수 이름을 찾으려 한다는
+                점도 실험해 보세요.
+              </p>
+            </article>
+            <article class="practice-question" id="practice-3" role="tabpanel" hidden data-practice-panel>
+              <p class="lesson-meta">실습 3</p>
+              <h3>변수 값 바꾸기</h3>
+              <p>
+                <span class="code-inline">a = 3</span>을 출력한 뒤
+                <span class="code-inline">a = 5</span>를 다시 대입하고 출력해 보세요.
+                변수에는 마지막으로 대입한 값이 남습니다.
+              </p>
+            </article>
+            <article class="practice-question" id="practice-4" role="tabpanel" hidden data-practice-panel>
+              <p class="lesson-meta">실습 4</p>
+              <h3>a = a + 1 원리 확인하기</h3>
               <p>
                 <span class="code-inline">a = a + 1</span>을 여러 번 실행해 보세요.
-                오른쪽 값을 먼저 계산하고 다시 왼쪽 변수에 저장한다는 점을 확인합니다.
+                오른쪽 값을 먼저 계산하고 그 결과를 다시 왼쪽 변수에 저장하는 흐름을
+                출력 결과로 확인합니다.
               </p>
             </article>
-            <article class="practice-question">
-              <h3>실습 3. 숫자 변수로 계산하기</h3>
-              <p>
-                <span class="code-inline">score</span> 또는
-                <span class="code-inline">price</span> 같은 숫자 변수를 만들고
-                <span class="code-inline">+</span>, <span class="code-inline">-</span>,
-                <span class="code-inline">*</span>, <span class="code-inline">/</span>
-                연산 결과를 출력해 보세요.
-              </p>
-            </article>
-            <article class="practice-question">
-              <h3>실습 4. 문자열 변수 만들기</h3>
-              <p>
-                <span class="code-inline">name = "민지"</span>처럼 이름이나 과목명을
-                문자열 변수에 저장하고 출력해 보세요. 글자는 따옴표로 감쌉니다.
-              </p>
-            </article>
+
             <aside class="note-panel">
               <h3>체크리스트</h3>
               <ul class="check-list">
@@ -178,7 +193,7 @@ print(name)</code></pre>
                 <li>문자열 데이터는 따옴표로 감쌌나요?</li>
               </ul>
             </aside>
-          </div>
+          </section>
 
           <section class="runner-panel" aria-label="Python 코드 실행기">
             <div class="runner-toolbar">

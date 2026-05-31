@@ -44,31 +44,33 @@ DEFAULT_LESSON = Lesson(
     ],
     concepts=[
         {
-            "title": "=는 대입 연산자",
+            "title": "숫자형 데이터는 계산 가능한 값으로 저장됨",
             "body": (
-                "a = 3은 변수 a에 숫자 3을 저장한다는 뜻입니다. 수학의 같다와 달리 "
-                "Python의 =는 오른쪽 값을 왼쪽 이름에 넣는 대입 연산자입니다."
+                "score = 80을 실행하면 Python은 80을 계산할 수 있는 숫자 데이터로 "
+                "보고, 그 값을 score라는 이름에 저장합니다. 그래서 score + 10처럼 "
+                "바로 계산할 수 있습니다."
             ),
         },
         {
-            "title": "변수의 값은 다시 바뀔 수 있음",
+            "title": "문자열 데이터는 따옴표로 감싼 글자로 저장됨",
             "body": (
-                "a = 3 다음에 a = 5를 실행하면 a의 값은 5가 됩니다. 변수는 "
-                "마지막으로 대입된 값을 기억합니다."
+                'name = "민지"를 실행하면 Python은 따옴표 안의 민지를 글자 '
+                "데이터로 보고 name에 저장합니다. 따옴표가 없으면 Python은 "
+                "글자가 아니라 이미 만들어진 변수 이름을 찾으려고 합니다."
             ),
         },
         {
-            "title": "a = a + 1의 원리",
+            "title": "=는 오른쪽 값을 왼쪽 변수에 넣는 대입",
             "body": (
-                "a = a + 1은 먼저 오른쪽의 a + 1을 계산한 뒤, 그 결과를 다시 "
-                "a에 저장합니다. 그래서 값이 1 증가합니다."
+                "a = 3은 a와 3이 같다는 뜻이 아니라, 오른쪽의 3을 왼쪽 변수 "
+                "a에 저장한다는 뜻입니다. Python은 항상 오른쪽을 먼저 읽습니다."
             ),
         },
         {
-            "title": "숫자와 문자열 데이터",
+            "title": "같은 변수에 다시 대입하면 저장된 값이 바뀜",
             "body": (
-                '숫자는 계산할 수 있고 문자열은 글자를 나타냅니다. score = 80은 '
-                '계산 가능한 숫자, name = "민지"는 글자 데이터입니다.'
+                "a = 3 다음에 a = 5를 실행하면 a는 마지막에 저장한 5를 기억합니다. "
+                "a = a + 1은 기존 a를 읽고 1을 더한 뒤, 그 결과를 다시 a에 저장합니다."
             ),
         },
     ],
@@ -95,20 +97,20 @@ DEFAULT_LESSON = Lesson(
     ),
     practices=[
         Practice(
-            "실습 1. 변수 값 바꾸기",
-            "a = 3을 출력한 뒤, a = 5로 다시 대입하고 한 번 더 출력해 보세요. 어떤 값이 마지막에 남는지 확인합니다.",
+            "숫자형 데이터를 변수에 저장하기",
+            "score = 80처럼 숫자를 따옴표 없이 변수에 저장하고, print(score)로 출력해 보세요. 숫자는 계산 가능한 값으로 저장됩니다.",
         ),
         Practice(
-            "실습 2. a = a + 1 실험하기",
-            "a = a + 1을 여러 번 실행해 보세요. 오른쪽 값을 먼저 계산하고 다시 왼쪽 변수에 저장한다는 점을 확인합니다.",
+            "문자열 데이터를 변수에 저장하기",
+            'name = "민지"처럼 글자는 따옴표로 감싸서 저장합니다. 따옴표를 지우면 Python이 변수 이름을 찾으려 한다는 점도 실험해 보세요.',
         ),
         Practice(
-            "실습 3. 숫자 변수로 계산하기",
-            "score 또는 price 같은 숫자 변수를 만들고 +, -, *, / 연산 결과를 출력해 보세요.",
+            "변수 값 바꾸기",
+            "a = 3을 출력한 뒤 a = 5를 다시 대입하고 출력해 보세요. 변수에는 마지막으로 대입한 값이 남습니다.",
         ),
         Practice(
-            "실습 4. 문자열 변수 만들기",
-            'name = "민지"처럼 이름이나 과목명을 문자열 변수에 저장하고 출력해 보세요. 글자는 따옴표로 감쌉니다.',
+            "a = a + 1 원리 확인하기",
+            "a = a + 1을 여러 번 실행해 보세요. 오른쪽 값을 먼저 계산하고 그 결과를 다시 왼쪽 변수에 저장하는 흐름을 출력 결과로 확인합니다.",
         ),
     ],
     starter_code=dedent(
@@ -172,11 +174,14 @@ def render_concepts(concepts: list[dict[str, str]]) -> str:
 def render_practices(practices: list[Practice]) -> str:
     cards = []
     for index, practice in enumerate(practices):
+        number = index + 1
         current = ' aria-current="true"' if index == 0 else ""
+        hidden = "" if index == 0 else " hidden"
         cards.append(
             dedent(
                 f'''\
-                <article class="practice-question"{current}>
+                <article class="practice-question" id="practice-{number}" role="tabpanel"{current}{hidden} data-practice-panel>
+                  <p class="lesson-meta">실습 {number}</p>
                   <h3>{escape(practice.title)}</h3>
                   <p>{escape(practice.body)}</p>
                 </article>'''
@@ -187,6 +192,10 @@ def render_practices(practices: list[Practice]) -> str:
 
 def render_lesson(lesson: Lesson) -> str:
     lesson_id = f"{lesson.number:02d}"
+    practice_tabs = "\n".join(
+        f'                      <button class="practice-tab" type="button" role="tab" aria-selected="{str(index == 0).lower()}" data-practice-tab="practice-{index + 1}">{index + 1}</button>'
+        for index, _ in enumerate(lesson.practices)
+    )
     return dedent(
         f'''\
         <!doctype html>
@@ -266,17 +275,21 @@ def render_lesson(lesson: Lesson) -> str:
                 </div>
 
                 <div class="practice-layout">
-                  <div class="practice-stack" aria-label="실습 질문">
+                  <section class="practice-card" aria-label="실습 과제">
+                    <div class="practice-tabs" role="tablist" aria-label="실습 선택">
+        {practice_tabs}
+                    </div>
         {render_practices(lesson.practices)}
                     <aside class="note-panel">
                       <h3>체크리스트</h3>
                       <ul class="check-list">
-                        <li>변수 이름과 코드의 의미를 설명할 수 있나요?</li>
+                        <li>=를 같다 대신 대입으로 읽었나요?</li>
+                        <li>숫자 데이터는 따옴표 없이 저장했나요?</li>
+                        <li>문자열 데이터는 따옴표로 감쌌나요?</li>
                         <li>실행 결과와 오류 메시지를 읽어 보았나요?</li>
-                        <li>예제에서 한 가지 이상을 바꾸어 다시 실행했나요?</li>
                       </ul>
                     </aside>
-                  </div>
+                  </section>
 
                   <section class="runner-panel" aria-label="Python 코드 실행기">
                     <div class="runner-toolbar">

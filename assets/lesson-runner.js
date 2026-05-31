@@ -4,12 +4,26 @@
   const explanation = document.querySelector("[data-error-explanation]");
   const runButton = document.querySelector("[data-run-python]");
   const status = document.querySelector("[data-runner-status]");
+  const practiceTabs = document.querySelectorAll("[data-practice-tab]");
+  const practicePanels = document.querySelectorAll("[data-practice-panel]");
 
   if (!editor || !output || !runButton || !status || !explanation) {
     return;
   }
 
   let pyodideReadyPromise = null;
+
+  function selectPractice(panelId) {
+    practiceTabs.forEach((tab) => {
+      tab.setAttribute("aria-selected", String(tab.dataset.practiceTab === panelId));
+    });
+
+    practicePanels.forEach((panel) => {
+      const isActive = panel.id === panelId;
+      panel.hidden = !isActive;
+      panel.setAttribute("aria-current", String(isActive));
+    });
+  }
 
   function setStatus(message) {
     status.textContent = message;
@@ -123,6 +137,12 @@
       editor.selectionStart = start + 4;
       editor.selectionEnd = start + 4;
     }
+  });
+
+  practiceTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      selectPractice(tab.dataset.practiceTab);
+    });
   });
 
   runButton.addEventListener("click", runCode);
