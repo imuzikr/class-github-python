@@ -31,72 +31,102 @@ class Lesson:
 
 DEFAULT_LESSON = Lesson(
     number=1,
-    title="변수와 자료형",
+    title="변수와 데이터",
     summary=(
-        "Python에서 변수는 값을 담는 이름표입니다. 이번 차시에서는 값을 변수에 "
-        "저장하고, 저장된 값이 어떤 자료형인지 직접 확인합니다."
+        "Python에서 변수는 데이터를 저장하는 이름입니다. 이번 차시에서는 =로 "
+        "값을 대입하고, 숫자가 들어 있는 변수로 계산하는 방법을 배웁니다."
     ),
     objectives=[
-        "변수에 값을 저장하는 문법을 설명할 수 있다.",
-        "정수, 실수, 문자열, 불리언 자료형을 구분할 수 있다.",
-        "type()으로 값의 자료형을 확인할 수 있다.",
+        "=가 값을 저장하는 대입 연산자임을 설명할 수 있다.",
+        "같은 변수에 새 값을 대입하면 이전 값이 바뀐다는 것을 확인할 수 있다.",
+        "숫자가 들어 있는 변수로 +, -, *, / 연산을 할 수 있다.",
+        "숫자 데이터와 문자열 데이터의 쓰임을 구분할 수 있다.",
     ],
     concepts=[
         {
-            "title": "변수는 값을 저장하는 이름",
+            "title": "=는 대입 연산자",
             "body": (
-                'name = "민지"처럼 왼쪽에는 변수 이름, 오른쪽에는 저장할 값을 씁니다. '
-                "등호는 같다라는 뜻이 아니라 값을 넣는다는 뜻으로 읽습니다."
+                "a = 3은 변수 a에 숫자 3을 저장한다는 뜻입니다. 수학의 같다와 달리 "
+                "Python의 =는 오른쪽 값을 왼쪽 이름에 넣는 대입 연산자입니다."
             ),
         },
         {
-            "title": "자료형은 값의 종류",
+            "title": "변수의 값은 다시 바뀔 수 있음",
             "body": (
-                "Python은 값의 종류를 자료형으로 구분합니다. 대표적으로 정수 int, "
-                "실수 float, 문자열 str, 불리언 bool이 있습니다."
+                "a = 3 다음에 a = 5를 실행하면 a의 값은 5가 됩니다. 변수는 "
+                "마지막으로 대입된 값을 기억합니다."
+            ),
+        },
+        {
+            "title": "a = a + 1의 원리",
+            "body": (
+                "a = a + 1은 먼저 오른쪽의 a + 1을 계산한 뒤, 그 결과를 다시 "
+                "a에 저장합니다. 그래서 값이 1 증가합니다."
+            ),
+        },
+        {
+            "title": "숫자와 문자열 데이터",
+            "body": (
+                '숫자는 계산할 수 있고 문자열은 글자를 나타냅니다. score = 80은 '
+                '계산 가능한 숫자, name = "민지"는 글자 데이터입니다.'
             ),
         },
     ],
     example_code=dedent(
         '''\
-        name = "민지"
-        age = 17
-        height = 162.5
-        is_student = True
+        a = 3
+        print(a)
 
+        a = 5
+        print(a)
+
+        a = a + 1
+        print(a)
+
+        score = 80
+        print(score + 10)
+        print(score - 5)
+        print(score * 2)
+        print(score / 4)
+
+        name = "민지"
         print(name)
-        print(type(age))
-        print(type(height))
-        print(type(is_student))
         '''
     ),
     practices=[
         Practice(
-            "실습 1. 나를 소개하는 변수 만들기",
-            "student_name, grade, favorite_subject 변수를 만들고 print()로 출력해 보세요.",
+            "실습 1. 변수 값 바꾸기",
+            "a = 3을 출력한 뒤, a = 5로 다시 대입하고 한 번 더 출력해 보세요. 어떤 값이 마지막에 남는지 확인합니다.",
         ),
         Practice(
-            "실습 2. 자료형 확인하기",
-            "각 변수 아래에 type()을 사용한 출력문을 추가해서 값의 자료형을 확인해 보세요.",
+            "실습 2. a = a + 1 실험하기",
+            "a = a + 1을 여러 번 실행해 보세요. 오른쪽 값을 먼저 계산하고 다시 왼쪽 변수에 저장한다는 점을 확인합니다.",
         ),
         Practice(
-            "실습 3. 오류 고치기",
-            "숫자와 문자열을 연결하다가 오류가 생기면 str()로 숫자를 문자열로 바꾸어 해결할 수 있습니다.",
+            "실습 3. 숫자 변수로 계산하기",
+            "score 또는 price 같은 숫자 변수를 만들고 +, -, *, / 연산 결과를 출력해 보세요.",
+        ),
+        Practice(
+            "실습 4. 문자열 변수 만들기",
+            'name = "민지"처럼 이름이나 과목명을 문자열 변수에 저장하고 출력해 보세요. 글자는 따옴표로 감쌉니다.',
         ),
     ],
     starter_code=dedent(
         '''\
-        student_name = "민지"
-        grade = 2
-        favorite_subject = "정보"
+        a = 3
+        print(a)
 
-        print("이름:", student_name)
-        print("학년:", grade)
-        print("좋아하는 과목:", favorite_subject)
+        a = 5
+        print(a)
 
-        print(type(student_name))
-        print(type(grade))
-        print(type(favorite_subject))
+        a = a + 1
+        print(a)
+
+        score = 80
+        print(score + 10)
+
+        name = "민지"
+        print(name)
         '''
     ),
 )
