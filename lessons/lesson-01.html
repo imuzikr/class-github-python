@@ -135,20 +135,25 @@ print(type(is_student))</code></pre>
               </button>
             </div>
             <label class="visually-hidden" for="python-code">Python 코드 입력</label>
-            <textarea id="python-code" class="code-editor" spellcheck="false" data-python-editor>student_name = "민지"
+            <textarea
+              id="python-code"
+              class="code-editor"
+              spellcheck="false"
+              data-python-editor
+              placeholder="왼쪽 실습 질문을 보고 직접 코드를 입력해 보세요.
+
+예)
+student_name = &quot;민지&quot;
 grade = 2
-favorite_subject = "정보"
+favorite_subject = &quot;정보&quot;
 
-print("이름:", student_name)
-print("학년:", grade)
-print("좋아하는 과목:", favorite_subject)
-
-print(type(student_name))
-print(type(grade))
-print(type(favorite_subject))</textarea>
+print(student_name)
+print(type(grade))"
+            ></textarea>
             <div class="output-shell">
-              <span class="output-label">실행 결과</span>
-              <pre class="output-panel" aria-live="polite" data-python-output>Python이 준비되면 실행 버튼을 눌러 보세요.</pre>
+              <span class="output-label">입력 결과</span>
+              <pre class="output-panel" aria-live="polite" data-python-output>코드를 직접 입력한 뒤 실행 버튼을 눌러 보세요.</pre>
+              <div class="explanation-panel" data-error-explanation hidden></div>
             </div>
           </section>
         </div>

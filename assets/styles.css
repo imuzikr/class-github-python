@@ -438,6 +438,24 @@ p {
   color: #9f1239;
 }
 
+.explanation-panel {
+  display: grid;
+  gap: 4px;
+  border-left: 4px solid var(--color-warning);
+  border-radius: var(--radius-sm);
+  background: #fff8eb;
+  color: #65420f;
+  padding: 12px 14px;
+}
+
+.explanation-panel[hidden] {
+  display: none;
+}
+
+.explanation-panel span {
+  color: #76551a;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

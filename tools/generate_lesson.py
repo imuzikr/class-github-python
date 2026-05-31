@@ -237,10 +237,17 @@ def render_lesson(lesson: Lesson) -> str:
                       <button class="button button-primary" type="button" data-run-python disabled>실행</button>
                     </div>
                     <label class="visually-hidden" for="python-code">Python 코드 입력</label>
-                    <textarea id="python-code" class="code-editor" spellcheck="false" data-python-editor>{escape(lesson.starter_code.strip())}</textarea>
+                    <textarea
+                      id="python-code"
+                      class="code-editor"
+                      spellcheck="false"
+                      data-python-editor
+                      placeholder="왼쪽 실습 질문을 보고 직접 코드를 입력해 보세요.\n\n예)\n{escape(lesson.starter_code.strip())}"
+                    ></textarea>
                     <div class="output-shell">
-                      <span class="output-label">실행 결과</span>
-                      <pre class="output-panel" aria-live="polite" data-python-output>Python이 준비되면 실행 버튼을 눌러 보세요.</pre>
+                      <span class="output-label">입력 결과</span>
+                      <pre class="output-panel" aria-live="polite" data-python-output>코드를 직접 입력한 뒤 실행 버튼을 눌러 보세요.</pre>
+                      <div class="explanation-panel" data-error-explanation hidden></div>
                     </div>
                   </section>
                 </div>
