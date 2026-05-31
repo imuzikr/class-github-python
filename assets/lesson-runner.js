@@ -15,13 +15,17 @@
 
   function selectPractice(panelId) {
     practiceTabs.forEach((tab) => {
-      tab.setAttribute("aria-selected", String(tab.dataset.practiceTab === panelId));
+      const isActive = tab.dataset.practiceTab === panelId;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
     });
 
     practicePanels.forEach((panel) => {
       const isActive = panel.id === panelId;
-      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", isActive);
       panel.setAttribute("aria-current", String(isActive));
+      panel.setAttribute("aria-hidden", String(!isActive));
     });
   }
 
@@ -144,6 +148,11 @@
       selectPractice(tab.dataset.practiceTab);
     });
   });
+
+  const initialTab = document.querySelector('[data-practice-tab][aria-selected="true"]') || practiceTabs[0];
+  if (initialTab) {
+    selectPractice(initialTab.dataset.practiceTab);
+  }
 
   runButton.addEventListener("click", runCode);
   loadRuntime().catch((error) => {

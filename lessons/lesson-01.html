@@ -141,13 +141,25 @@ print(name)</code></pre>
         <div class="practice-layout">
           <section class="practice-card" aria-label="실습 과제">
             <div class="practice-tabs" role="tablist" aria-label="실습 선택">
-              <button class="practice-tab" type="button" role="tab" aria-selected="true" data-practice-tab="practice-1">1</button>
-              <button class="practice-tab" type="button" role="tab" aria-selected="false" data-practice-tab="practice-2">2</button>
-              <button class="practice-tab" type="button" role="tab" aria-selected="false" data-practice-tab="practice-3">3</button>
-              <button class="practice-tab" type="button" role="tab" aria-selected="false" data-practice-tab="practice-4">4</button>
+              <button class="practice-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="practice-1" data-practice-tab="practice-1">
+                <span>1</span>
+                <strong>숫자 저장</strong>
+              </button>
+              <button class="practice-tab" type="button" role="tab" aria-selected="false" aria-controls="practice-2" data-practice-tab="practice-2">
+                <span>2</span>
+                <strong>문자열 저장</strong>
+              </button>
+              <button class="practice-tab" type="button" role="tab" aria-selected="false" aria-controls="practice-3" data-practice-tab="practice-3">
+                <span>3</span>
+                <strong>값 바꾸기</strong>
+              </button>
+              <button class="practice-tab" type="button" role="tab" aria-selected="false" aria-controls="practice-4" data-practice-tab="practice-4">
+                <span>4</span>
+                <strong>다시 대입</strong>
+              </button>
             </div>
 
-            <article class="practice-question" id="practice-1" role="tabpanel" aria-current="true" data-practice-panel>
+            <article class="practice-question is-active" id="practice-1" role="tabpanel" aria-current="true" aria-hidden="false" data-practice-panel>
               <p class="lesson-meta">실습 1</p>
               <h3>숫자형 데이터를 변수에 저장하기</h3>
               <p>
@@ -156,7 +168,7 @@ print(name)</code></pre>
                 출력해 보세요. 숫자는 계산 가능한 값으로 저장됩니다.
               </p>
             </article>
-            <article class="practice-question" id="practice-2" role="tabpanel" hidden data-practice-panel>
+            <article class="practice-question" id="practice-2" role="tabpanel" aria-current="false" aria-hidden="true" data-practice-panel>
               <p class="lesson-meta">실습 2</p>
               <h3>문자열 데이터를 변수에 저장하기</h3>
               <p>
@@ -165,7 +177,7 @@ print(name)</code></pre>
                 점도 실험해 보세요.
               </p>
             </article>
-            <article class="practice-question" id="practice-3" role="tabpanel" hidden data-practice-panel>
+            <article class="practice-question" id="practice-3" role="tabpanel" aria-current="false" aria-hidden="true" data-practice-panel>
               <p class="lesson-meta">실습 3</p>
               <h3>변수 값 바꾸기</h3>
               <p>
@@ -174,7 +186,7 @@ print(name)</code></pre>
                 변수에는 마지막으로 대입한 값이 남습니다.
               </p>
             </article>
-            <article class="practice-question" id="practice-4" role="tabpanel" hidden data-practice-panel>
+            <article class="practice-question" id="practice-4" role="tabpanel" aria-current="false" aria-hidden="true" data-practice-panel>
               <p class="lesson-meta">실습 4</p>
               <h3>a = a + 1 원리 확인하기</h3>
               <p>

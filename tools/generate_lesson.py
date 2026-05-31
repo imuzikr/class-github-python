@@ -175,12 +175,13 @@ def render_practices(practices: list[Practice]) -> str:
     cards = []
     for index, practice in enumerate(practices):
         number = index + 1
-        current = ' aria-current="true"' if index == 0 else ""
-        hidden = "" if index == 0 else " hidden"
+        active_class = " is-active" if index == 0 else ""
+        current = "true" if index == 0 else "false"
+        hidden = "false" if index == 0 else "true"
         cards.append(
             dedent(
                 f'''\
-                <article class="practice-question" id="practice-{number}" role="tabpanel"{current}{hidden} data-practice-panel>
+                <article class="practice-question{active_class}" id="practice-{number}" role="tabpanel" aria-current="{current}" aria-hidden="{hidden}" data-practice-panel>
                   <p class="lesson-meta">실습 {number}</p>
                   <h3>{escape(practice.title)}</h3>
                   <p>{escape(practice.body)}</p>
@@ -192,10 +193,20 @@ def render_practices(practices: list[Practice]) -> str:
 
 def render_lesson(lesson: Lesson) -> str:
     lesson_id = f"{lesson.number:02d}"
-    practice_tabs = "\n".join(
-        f'                      <button class="practice-tab" type="button" role="tab" aria-selected="{str(index == 0).lower()}" data-practice-tab="practice-{index + 1}">{index + 1}</button>'
-        for index, _ in enumerate(lesson.practices)
-    )
+    practice_tab_lines = []
+    for index, practice in enumerate(lesson.practices):
+        number = index + 1
+        active_class = " is-active" if index == 0 else ""
+        selected = str(index == 0).lower()
+        practice_tab_lines.extend(
+            [
+                f'                      <button class="practice-tab{active_class}" type="button" role="tab" aria-selected="{selected}" aria-controls="practice-{number}" data-practice-tab="practice-{number}">',
+                f"                        <span>{number}</span>",
+                f"                        <strong>{escape(practice.title)}</strong>",
+                "                      </button>",
+            ]
+        )
+    practice_tabs = "\n".join(practice_tab_lines)
     return dedent(
         f'''\
         <!doctype html>
