@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1차시 변수와 자료형 | Python Classroom</title>
+    <meta
+      name="description"
+      content="고등학생을 위한 Python 1차시: 변수와 자료형을 배우고 브라우저에서 직접 실행합니다."
+    >
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script defer src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+    <script defer src="../assets/lesson-runner.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="주요 메뉴">
+        <a class="brand" href="../index.html">
+          <span class="brand-mark" aria-hidden="true">Py</span>
+          <span>
+            <strong>Python Classroom</strong>
+            <small>1차시 변수와 자료형</small>
+          </span>
+        </a>
+        <a class="nav-link" href="../index.html">차시 목록</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="lesson-hero">
+        <div class="lesson-hero-inner">
+          <p class="eyebrow">Lesson 01</p>
+          <h1>변수와 자료형</h1>
+          <p>
+            Python에서 변수는 값을 담는 이름표입니다. 이번 차시에서는 값을 변수에
+            저장하고, 저장된 값이 어떤 자료형인지 직접 확인합니다.
+          </p>
+          <ul class="objective-list">
+            <li>변수에 값을 저장하는 문법을 설명할 수 있다.</li>
+            <li>정수, 실수, 문자열, 불리언 자료형을 구분할 수 있다.</li>
+            <li><span class="code-inline">type()</span>으로 값의 자료형을 확인할 수 있다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Concept</p>
+          <h2>기본 개념</h2>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <h3>변수는 값을 저장하는 이름</h3>
+            <p>
+              <span class="code-inline">name = "민지"</span>처럼 왼쪽에는 변수 이름,
+              오른쪽에는 저장할 값을 씁니다. 등호는 같다라는 뜻이 아니라 값을
+              넣는다는 뜻으로 읽습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>자료형은 값의 종류</h3>
+            <p>
+              Python은 값의 종류를 자료형으로 구분합니다. 대표적으로 정수
+              <span class="code-inline">int</span>, 실수 <span class="code-inline">float</span>,
+              문자열 <span class="code-inline">str</span>, 불리언
+              <span class="code-inline">bool</span>이 있습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Example</p>
+          <h2>예제 코드</h2>
+        </div>
+        <pre class="code-block"><code>name = "민지"
+age = 17
+height = 162.5
+is_student = True
+
+print(name)
+print(type(age))
+print(type(height))
+print(type(is_student))</code></pre>
+      </section>
+
+      <section class="section" id="practice">
+        <div class="section-heading">
+          <p class="eyebrow">Practice</p>
+          <h2>직접 실습하기</h2>
+        </div>
+
+        <div class="practice-layout">
+          <div class="practice-stack" aria-label="실습 질문">
+            <article class="practice-question" aria-current="true">
+              <h3>실습 1. 나를 소개하는 변수 만들기</h3>
+              <p>
+                <span class="code-inline">student_name</span>,
+                <span class="code-inline">grade</span>,
+                <span class="code-inline">favorite_subject</span> 변수를 만들고
+                <span class="code-inline">print()</span>로 출력해 보세요.
+              </p>
+            </article>
+            <article class="practice-question">
+              <h3>실습 2. 자료형 확인하기</h3>
+              <p>
+                각 변수 아래에 <span class="code-inline">type()</span>을 사용한
+                출력문을 추가해서 값의 자료형을 확인해 보세요.
+              </p>
+            </article>
+            <article class="practice-question">
+              <h3>실습 3. 오류 고치기</h3>
+              <p>
+                숫자와 문자열을 연결하다가 오류가 생기면
+                <span class="code-inline">str()</span>로 숫자를 문자열로 바꾸어
+                해결할 수 있습니다.
+              </p>
+            </article>
+            <aside class="note-panel">
+              <h3>체크리스트</h3>
+              <ul class="check-list">
+                <li>변수 이름은 의미 있게 작성했나요?</li>
+                <li>문자열은 따옴표로 감쌌나요?</li>
+                <li>실행 결과와 오류 메시지를 읽어 보았나요?</li>
+              </ul>
+            </aside>
+          </div>
+
+          <section class="runner-panel" aria-label="Python 코드 실행기">
+            <div class="runner-toolbar">
+              <span class="runner-status" data-runner-status>Python 준비 중</span>
+              <button class="button button-primary" type="button" data-run-python disabled>
+                실행
+              </button>
+            </div>
+            <label class="visually-hidden" for="python-code">Python 코드 입력</label>
+            <textarea id="python-code" class="code-editor" spellcheck="false" data-python-editor>student_name = "민지"
+grade = 2
+favorite_subject = "정보"
+
+print("이름:", student_name)
+print("학년:", grade)
+print("좋아하는 과목:", favorite_subject)
+
+print(type(student_name))
+print(type(grade))
+print(type(favorite_subject))</textarea>
+            <div class="output-shell">
+              <span class="output-label">실행 결과</span>
+              <pre class="output-panel" aria-live="polite" data-python-output>Python이 준비되면 실행 버튼을 눌러 보세요.</pre>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
